@@ -1,0 +1,67 @@
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+        maven { url 'http://repo.spring.io/plugins-release' }
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${SPRING_BOOT_VERSION}")
+        classpath 'org.springframework.build.gradle:propdeps-plugin:0.0.7'
+        classpath("com.moowork.gradle:gradle-gulp-plugin:0.13")
+        //classpath 'org.asciidoctor:asciidoctor-gradle-plugin:1.5.2'
+        //classpath 'org.asciidoctor:asciidoctorj-pdf:1.5.0-alpha.9'
+        // classpath 'org.kordamp.gradle:livereload-gradle-plugin:0.2.1'
+    }
+    ext {
+        snippetsDir = file('build/generated-snippets')
+    }
+}
+
+plugins {
+    id "com.moowork.gulp" version "0.13"
+    id "com.moowork.node" version "0.13"
+}
+
+subprojects {
+
+    apply plugin: "com.moowork.gulp"
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'spring-boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'propdeps'
+    apply plugin: 'propdeps-idea'
+
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    compileJava {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
+
+
+    repositories {
+        jcenter()
+        mavenCentral()
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+    }
+
+    dependencies {
+
+        compile 'org.apache.httpcomponents:httpclient'
+        compile "org.projectlombok:lombok"
+
+        testCompile("org.springframework.boot:spring-boot-starter-test")
+    }
+
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}
