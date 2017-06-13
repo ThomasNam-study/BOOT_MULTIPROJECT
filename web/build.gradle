@@ -45,11 +45,6 @@ dependencies {
     compile 'org.apache.poi:poi-ooxml:3.14'*/
 
     runtime("com.h2database:h2")
-    // compile "org.flywaydb:flyway-core"
-
-    // runtime("mysql:mysql-connector-java")
-
-    // bower
 
     compile 'org.webjars.bower:jquery:2.1.4'
     compile 'org.webjars.bower:angular:1.5.9'
@@ -79,6 +74,16 @@ dependencies {
 gulp_build.dependsOn 'installGulp'
 
 //make sure gulp generates CSS for the build
-bootRun.dependsOn gulp_build
+bootRun.dependsOn gulp_build*/
 
-compileJava.dependsOn(processResources)*/
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}
+
+compileJava.dependsOn(processResources)
+
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+bootRun {
+    systemProperties System.properties
+}

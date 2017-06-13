@@ -2,7 +2,7 @@ dependencies {
 
     compile fileTree(dir: 'lib', include: ['*.jar'])
 
-    compile("org.springframework.boot:spring-boot-starter-web")
+    compile('org.springframework.boot:spring-boot-starter')
     compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile 'commons-io:commons-io:2.4'
     compile 'commons-codec:commons-codec'
@@ -12,5 +12,4 @@ dependencies {
     compile group: 'net.sourceforge.jexcelapi', name: 'jxl', version: '2.6.12'
     compile group: 'de.svenkubiak', name: 'jBCrypt', version: '0.4.1'
     compile group: 'net.coobird', name: 'thumbnailator', version: '0.4.8'
-
 }
