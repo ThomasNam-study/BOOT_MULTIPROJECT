@@ -14,37 +14,27 @@ dependencies {
     compile fileTree(dir: 'lib', include: ['*.jar'])
 
     compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-data-jpa")
     compile("org.springframework.boot:spring-boot-starter-mobile")
-    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
 
     // compile("org.springframework.security.oauth:spring-security-oauth2")
 
     compile 'commons-fileupload:commons-fileupload:1.3.1'
-    compile 'commons-io:commons-io:2.4'
-    compile 'commons-codec:commons-codec'
 
     compile("org.springframework.boot:spring-boot-devtools")
-
-    compile 'io.github.jpenren:thymeleaf-spring-data-dialect:2.1.1'
-    compile("org.thymeleaf.extras:thymeleaf-extras-java8time")
-    compile("org.thymeleaf.extras:thymeleaf-extras-springsecurity4")
     compile("org.springframework.boot:spring-boot-configuration-processor")
 
-    compile("javax.cache:cache-api")
-    compile("org.ehcache:ehcache")
+    // JSP
+    compile 'javax.servlet:jstl'
+    compile 'javax.servlet:javax.servlet-api'
+    compile 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.1'
 
-    // compile("javax.mail:javax.mail-api:1.5.5")
-    // compile 'org.bouncycastle:bcprov-jdk16:1.46'
-    // compile 'com.notnoop.apns:apns:1.0.0.Beta6'
-    // compile 'com.googlecode.json-simple:json-simple:1.1'
+    runtime 'org.apache.tomcat:tomcat-jsp-api'
+    runtime 'org.apache.tomcat.embed:tomcat-embed-core'
+    runtime 'org.apache.tomcat.embed:tomcat-embed-el'
+    runtime 'org.apache.tomcat.embed:tomcat-embed-jasper'
 
-    /*compile 'org.mybatis:mybatis-spring:1.1.1'
-    compile 'org.mybatis:mybatis:3.3.0'
     compile 'org.apache.poi:poi:3.12'
-    compile 'org.apache.poi:poi-ooxml:3.14'*/
-
-    runtime("com.h2database:h2")
+    compile 'org.apache.poi:poi-ooxml:3.14'
 
     compile 'org.webjars.bower:jquery:2.1.4'
     compile 'org.webjars.bower:angular:1.5.9'

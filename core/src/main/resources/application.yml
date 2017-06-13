@@ -1,0 +1,38 @@
+spring:
+
+  jpa:
+      database: MYSQL
+      show-sql: true
+
+      properties:
+            hibernate:
+              current_session_context_class: org.springframework.orm.hibernate4.SpringSessionContext
+              dialect: org.hibernate.dialect.MySQL5Dialect
+
+      hibernate:
+        naming-strategy: org.hibernate.cfg.EJB3NamingStrategy
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+          strategy: org.hibernate.cfg.EJB3NamingStrategy
+
+
+  messages:
+    basename: messages/text,messages/error,messages/element,messages/field
+
+  data:
+    mongodb:
+      host: 10.100.100.65
+      port: 27017
+      database: zipsa
+
+  datasource:
+
+    url: jdbc:mysql://10.100.100.65/zipsa?autoReconnect=true&noDatetimeStringSync=true&zeroDateTimeBehavior=convertToNull&characterEncoding=utf8&useUnicode=true&mysqlEncoding=utf8&noAccessToProcedureBodies=true
+    username: dev
+    password: No1Dev!@
+    driver-class-name: com.mysql.jdbc.Driver
+    dbcp2:
+      validationQuery: SELECT 1
+      test-on-borrow: true
+      test-on-return: true
+      test-while-idle: true
