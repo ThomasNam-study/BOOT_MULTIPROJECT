@@ -24,8 +24,6 @@ public class MyServiceImp implements MyService
 	@Override
 	public String getMyString ()
 	{
-		System.out.println (dataSource);
-
 		return messageSource.getMessage ("el.user.userID", null, Locale.getDefault ()) + "SpringBoot Good!!";
 	}
 }

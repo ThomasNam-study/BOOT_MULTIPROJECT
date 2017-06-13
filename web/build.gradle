@@ -8,6 +8,26 @@ task shutdown << {
     println p.text
 }
 
+// compile group: 'org.webjars.bower', name: 'bootstrap', version: '3.3.7'
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        if (details.requested.group == 'org.webjars.bower' && details.requested.name == 'bootstrap') {
+            //prefer different version which contains some necessary fixes
+            details.useVersion '3.3.7'
+        }
+
+        if (details.requested.group == 'org.webjars.bower' && details.requested.name == 'jquery') {
+            //prefer different version which contains some necessary fixes
+            details.useVersion '3.2.0'
+        }
+
+        if (details.requested.group == 'org.webjars.bower' && details.requested.name == 'angular') {
+            //prefer different version which contains some necessary fixes
+            details.useVersion '1.6.3'
+        }
+    }
+}
+
 dependencies {
 
     compile project(':core')
